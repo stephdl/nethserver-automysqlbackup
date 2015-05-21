@@ -4,15 +4,15 @@
 %define rpmver   3.0.RC6
 
 
-Summary:            automysqlbackup is a script to backup your msql database on nethserver
-Name:               %{name}
-Version:            %{version}
-Release:            %{release}%{?dist}
-License:            GPL
-Group:              /Web/Application
-Source:             %{name}-%{version}.tar.gz
-URL:                http://sourceforge.net/projects/automysqlbackup/
-BuildRoot:          /var/tmp/%{name}-%{version}-%{release}-buildroot
+Summary:automysqlbackup is a script to backup your msql database on nethserver
+Name:   %{name}
+Version:%{version}
+Release:%{release}%{?dist}
+License:GPL
+Group:  /Web/Application
+Source: %{name}-%{version}.tar.gz
+URL:    http://sourceforge.net/projects/automysqlbackup/
+BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildArchitectures: noarch
 Requires: nethserver-mysql
 Requires: pax
@@ -67,10 +67,6 @@ rm -rf $RPM_BUILD_ROOT
 %pre
 
 %post
-SMEDB=automysqlbackup
-MYSQLUSER=backupuser
-# Expland template
-/etc/e-smith/events/actions/initialize-default-databases
 
 echo "========================================================================================="
 echo "	Your Databases are saved in /root/backup/db "
@@ -81,6 +77,7 @@ echo "	Configuration file is /etc/automysqlbackup/myserver.conf"
 echo " "
 echo "	For a manual play you can use directly"
 echo "	automysqlbackup /etc/automysqlbackup/myserver.conf "
+echo "  or as a shortcut simply do in a terminal  : automysqlbackup "
 echo "	else backups are done every night at 04H00 AM with /etc/cron.daily/runmysqlbackup"
 echo "========================================================================================="
 echo "	RESTORING"
@@ -105,7 +102,6 @@ echo "	Backupdir=path to the folder where mysql files are saved"
 echo " "
 echo "	ex: config setprop automysqlbackup Mailcontent files"
 echo "========================================================================================="
-
 
 
 #protect the backup folder
