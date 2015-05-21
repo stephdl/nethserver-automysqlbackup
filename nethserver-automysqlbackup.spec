@@ -104,9 +104,6 @@ echo "	ex: config setprop automysqlbackup Mailcontent files"
 echo "========================================================================================="
 
 
-#protect the backup folder
-chmod -R 600 /root/backup/db
-			     
 %preun
 %postun
 if [ $1 = 0 ] ; then
