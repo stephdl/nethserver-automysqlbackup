@@ -6,4 +6,4 @@ my $event = 'nethserver-automysqlbackup-update';
 event_actions($event,
 'initialize-default-databases' => '00',
 'automysqlbackup.conf'=>'01',
-'automysqlbackup-mysql.conf');
+'automysqlbackup-mysql.conf'=>'02');
