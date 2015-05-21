@@ -108,13 +108,6 @@ echo "==========================================================================
 
 
 
-#create backupuser and give rights
-MYSQLPASS=$(/sbin/e-smith/config getprop $SMEDB DbPassword)
-mysql -e " GRANT EVENT,SELECT,LOCK TABLES ON *.* TO $MYSQLUSER@'localhost' "
-mysql -u root -e "SET PASSWORD FOR $MYSQLUSER@localhost = PASSWORD( '$MYSQLPASS' ) "
-mysqladmin flush-privileges
-/etc/rc.d/init.d/mysql.init start
-
 #protect the backup folder
 chmod -R 700 /root/backup/db
 			     
