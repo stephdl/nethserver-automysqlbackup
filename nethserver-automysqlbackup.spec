@@ -105,7 +105,7 @@ echo "==========================================================================
 
 
 #protect the backup folder
-chmod -R 700 /root/backup/db
+chmod -R 600 /root/backup/db
 			     
 %preun
 %postun
