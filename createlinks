@@ -1,0 +1,9 @@
+#!/usr/bin/perl -w
+
+use esmith::Build::CreateLinks  qw(:all);
+
+my $event = 'nethserver-automysqlbackup-update';
+event_actions($event,
+'initialize-default-databases' => '00',
+'automysqlbackup.conf'=>'01',
+'automysqlbackup-mysql.conf'=>'02');
