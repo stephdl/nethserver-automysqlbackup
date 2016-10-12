@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 5
+%define release 6
 %define rpmver   3.0.RC6
 
 
@@ -28,6 +28,9 @@ This script is based on automysqlbackup V3.0
 
 
 %changelog
+* Sat Nov 05 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-6.ns7
+- First release to NS7
+
 * Thu May 21 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-5
 - First release to Neth
 
@@ -50,16 +53,27 @@ rm -rf $RPM_BUILD_ROOT
 %build
 perl createlinks
 
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/daily
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/fullschema
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/latest
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/monthly
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/status
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/tmp
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/weekly
+
+
+
 %install
 /bin/rm -rf $RPM_BUILD_ROOT
 (cd root   ;/usr/bin/find . -depth -print | /bin/cpio -dump $RPM_BUILD_ROOT)
 /bin/rm -f %{name}-%{version}-filelist
-/sbin/e-smith/genfilelist $RPM_BUILD_ROOT > %{name}-%{version}-filelist
+%{genfilelist} $RPM_BUILD_ROOT > %{name}-%{version}-filelist
 
 
 %files -f %{name}-%{version}-filelist
 
 %defattr(-,root,root)
+%dir %{_nseventsdir}/%{name}-update
 
 %clean 
 rm -rf $RPM_BUILD_ROOT
@@ -67,42 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %pre
 
 %post
-
-echo "========================================================================================="
-echo "	Your Databases are saved in /root/backup/db "
-echo "	only Root can access to these folders"                         
-echo "	a mail is send to Admin for all logs "
-echo " "                                                                   
-echo "	Configuration file is /etc/automysqlbackup/myserver.conf"
-echo " "
-echo "	For a manual play you can use directly"
-echo "	automysqlbackup /etc/automysqlbackup/myserver.conf "
-echo "	or as a shortcut simply do in a terminal  : automysqlbackup "
-echo "	else backups are done every night at 04H00 AM with /etc/cron.daily/runmysqlbackup"
-echo "========================================================================================="
-echo "	RESTORING"
-echo " 	In a root terminal"
-echo "	cd /root/backup/db/ and choose your backup"
-echo "	gunzip file-name.sql.gz"
-echo "	Next you will need to use the mysql client to restore the DB from the sql file."
-echo "	mysql database < /path/file.sql"
-echo "	NOTE: Make sure you use < and not > in the above command because you are piping the file.sql" 
-echo "	to mysql and not the other way around"
-echo "========================================================================================="
-echo "	Some db configuration for handle this contrib"
-echo "	Mailcontent (stdout/log/files/quiet)"
-echo "	# What would you like to be mailed to you?"
-echo "	# - log   : send only log file (default)"
-echo "	# - files : send log file and sql files as attachments (see docs)"
-echo "	#- stdout : will simply output the log to the screen if run manually."
-echo "	#- quiet : Only send logs if an error occurs to the MAILADDR."
-echo "	Sizemail=8000 (bytes)"
-echo "	Mailto=root (or any other user@domaine.com)"
-echo "	Backupdir=path to the folder where mysql files are saved"
-echo " "
-echo "	ex: config setprop automysqlbackup Mailcontent files"
-echo "========================================================================================="
-
 
 %preun
 %postun
