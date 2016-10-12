@@ -49,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %build
 perl createlinks
-%{__mkdir} -p $RPM_BUILD_ROOT/var/lib/nethserver/automysqlbackup/daily
+%{__mkdir} -p root/var/lib/nethserver/automysqlbackup/daily
 %{__mkdir} -p $RPM_BUILD_ROOT/var/lib/nethserver/automysqlbackup/fullschema
 %{__mkdir} -p $RPM_BUILD_ROOT/var/lib/nethserver/automysqlbackup/latest
 %{__mkdir} -p $RPM_BUILD_ROOT/var/lib/nethserver/automysqlbackup/monthly
