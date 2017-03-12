@@ -63,7 +63,7 @@ perl createlinks
 %files -f %{name}-%{version}-filelist
 
 %defattr(-,root,root)
-
+%doc COPYING
 %clean 
 rm -rf $RPM_BUILD_ROOT
 
