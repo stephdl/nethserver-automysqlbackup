@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 5
+%define release 6
 %define rpmver   3.0.RC6
 
 
@@ -28,6 +28,9 @@ This script is based on automysqlbackup V3.0
 
 
 %changelog
+* Sun Mar 11 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-6
+- GPL license
+
 * Thu May 21 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-5
 - First release to Neth
 
