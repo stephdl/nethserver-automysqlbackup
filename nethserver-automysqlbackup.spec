@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 6
+%define release 7
 %define rpmver   3.0.RC6
 
 
@@ -28,6 +28,9 @@ This script is based on automysqlbackup V3.0
 
 
 %changelog
+* Sun Mar 11 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-7.ns7
+- GPL license
+
 * Sat Nov 05 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-6.ns7
 - First release to NS7
 
@@ -74,6 +77,7 @@ perl createlinks
 
 %defattr(-,root,root)
 %dir %{_nseventsdir}/%{name}-update
+%doc COPYING
 
 %clean 
 rm -rf $RPM_BUILD_ROOT
