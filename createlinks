@@ -7,3 +7,5 @@ event_actions($event,
 'initialize-default-databases' => '00',
 'automysqlbackup.conf'=>'01',
 'automysqlbackup-mysql.conf'=>'02');
+
+templates2events("/etc/cron.d/runmysqlbackup", $event);
