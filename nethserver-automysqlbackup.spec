@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 7
+%define release 8
 %define rpmver   3.0.RC6
 
 
@@ -28,6 +28,9 @@ This script is based on automysqlbackup V3.0
 
 
 %changelog
+* Mon Mar 27 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-8.ns7
+- The cronJob can be set hourly
+
 * Sun Mar 11 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-7.ns7
 - GPL license
 
@@ -70,7 +73,9 @@ perl createlinks
 /bin/rm -rf $RPM_BUILD_ROOT
 (cd root   ;/usr/bin/find . -depth -print | /bin/cpio -dump $RPM_BUILD_ROOT)
 /bin/rm -f %{name}-%{version}-filelist
-%{genfilelist} $RPM_BUILD_ROOT > %{name}-%{version}-filelist
+%{genfilelist} $RPM_BUILD_ROOT \
+  --file /sbin/e-smith/runmysqlbackup 'attr(0750,root,root)' \
+> %{name}-%{version}-filelist
 
 
 %files -f %{name}-%{version}-filelist

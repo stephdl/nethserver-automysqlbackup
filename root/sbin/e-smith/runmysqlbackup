@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/usr/local/bin/automysqlbackup /etc/automysqlbackup/myserver.conf
+/usr/local/bin/automysqlbackup /etc/automysqlbackup/myserver.conf >/dev/null
 
 chown root:root /var/lib/nethserver/automysqlbackup* -R
 find /var/lib/nethserver/automysqlbackup* -type f -exec chmod 400 {} \;
