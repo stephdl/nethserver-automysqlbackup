@@ -1,1 +1,1 @@
-* {${'automysqlbackup'}{'Hour'}||'3'} * * * root /sbin/e-smith/runmysqlbackup
+{${'automysqlbackup'}{'Minute'}||'1'} {${'automysqlbackup'}{'Hour'}||'3'} * * * root /sbin/e-smith/runmysqlbackup
