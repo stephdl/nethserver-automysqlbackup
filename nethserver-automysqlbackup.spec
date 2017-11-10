@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 7
+%define release 8
 %define rpmver   3.0.RC6
 
 
@@ -16,6 +16,7 @@ BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildArchitectures: noarch
 Requires: nethserver-mysql
 Requires: pax
+Requires: pigz
 Requires: automysqlbackup
 BuildRequires: nethserver-devtools
 
@@ -28,6 +29,9 @@ This script is based on automysqlbackup V3.0
 
 
 %changelog
+* Thu Nov 9 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-8.ns6
+- added pigz as dependency for multicore support
+
 * Mon Mar 27 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-7.ns6
 - The cronJob can be set hourly
 
