@@ -11,3 +11,13 @@ event_actions($event,
 'automysqlbackup-rh-mariadb102.conf'=>'02');
 
 templates2events("/etc/cron.d/runmysqlbackup", $event);
+
+$event = 'nethserver-rh-mariadb101-update';
+event_actions($event,
+'automysqlbackup-rh-mariadb101.conf'=>'95');
+templates2events("/etc/cron.d/runmysqlbackup", $event);
+
+$event = 'nethserver-rh-mariadb102-update';
+event_actions($event,
+'automysqlbackup-rh-mariadb102.conf'=>'95');
+templates2events("/etc/cron.d/runmysqlbackup", $event);
