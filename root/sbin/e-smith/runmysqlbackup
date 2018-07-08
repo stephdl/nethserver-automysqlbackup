@@ -2,6 +2,6 @@
 
 /usr/local/bin/automysqlbackup /etc/automysqlbackup/myserver.conf >/dev/null
 
-chown root:root /var/lib/nethserver/automysqlbackup* -R
-find /var/lib/nethserver/automysqlbackup* -type f -exec chmod 400 {} \;
-find /var/lib/nethserver/automysqlbackup* -type d -exec chmod 700 {} \;
+chown root:root /var/lib/nethserver/automysqlbackup -R
+find /var/lib/nethserver/automysqlbackup -type f -exec chmod 400 {} \;
+find /var/lib/nethserver/automysqlbackup -type d -exec chmod 700 {} \;

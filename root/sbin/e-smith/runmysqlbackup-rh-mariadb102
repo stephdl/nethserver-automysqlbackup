@@ -1,0 +1,7 @@
+#!/bin/sh
+
+/usr/local/bin/automysqlbackup /etc/automysqlbackup/rh-mariadb102.conf >/dev/null
+
+chown root:root /var/lib/nethserver/automysqlbackup-rh-mariadb102 -R
+find /var/lib/nethserver/automysqlbackup-rh-mariadb102 -type f -exec chmod 400 {} \;
+find /var/lib/nethserver/automysqlbackup-rh-mariadb102 -type d -exec chmod 700 {} \;
