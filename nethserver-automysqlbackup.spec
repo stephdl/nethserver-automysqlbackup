@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 9
+%define release 10
 %define rpmver   3.0.RC6
 
 
@@ -29,6 +29,9 @@ This script is based on automysqlbackup V3.0
 
 
 %changelog
+* Sun Jul 9 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-10.ns7
+- Dump rh-mariadb101 or rh-mariadb102 if installed
+
 * Thu Nov 9 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-9.ns7
 - added pigz as dependency for multicore support
 
