@@ -6,6 +6,8 @@ my $event = 'nethserver-automysqlbackup-update';
 event_actions($event,
 'initialize-default-databases' => '00',
 'automysqlbackup.conf'=>'01',
-'automysqlbackup-mysql.conf'=>'02');
+'automysqlbackup-mysql.conf'=>'02',
+'automysqlbackup-rh-mariadb101.conf'=>'02',
+'automysqlbackup-rh-mariadb102.conf'=>'02');
 
 templates2events("/etc/cron.d/runmysqlbackup", $event);
