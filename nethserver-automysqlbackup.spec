@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 10
+%define release 11
 %define rpmver   3.0.RC6
 
 
@@ -29,6 +29,9 @@ This script is based on automysqlbackup V3.0
 
 
 %changelog
+* Tue Aug 21 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-11.ns7
+- Create mysql user in mariadb101 & mariadb102
+
 * Sun Jul 9 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-10.ns7
 - Dump rh-mariadb101 or rh-mariadb102 if installed
 
