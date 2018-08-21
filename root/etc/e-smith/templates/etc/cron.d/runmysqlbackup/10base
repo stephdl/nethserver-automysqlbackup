@@ -2,15 +2,15 @@
     my $minute = ${'automysqlbackup'}{'Minute'}||'1';
     my $hour = ${'automysqlbackup'}{'Hour'}||'3';
 
-    if (${'mysqld'}{'status'} eq 'enabled') {
+    if ((${'mysqld'}{'status'} || '') eq 'enabled') {
         $OUT .= "$minute $hour * * * root /sbin/e-smith/runmysqlbackup\n"
     }
 
-    if (${'rh-mariadb101-mariadb'}{'status'} eq 'enabled') {
+    if ((${'rh-mariadb101-mariadb'}{'status'} || '') eq 'enabled') {
         $OUT .= "$minute $hour * * * root /sbin/e-smith/runmysqlbackup-rh-mariadb101\n"
     }
 
-    if (${'rh-mariadb102-mariadb'}{'status'} eq 'enabled') {
+    if ((${'rh-mariadb102-mariadb'}{'status'} || '') eq 'enabled') {
         $OUT .= "$minute $hour * * * root /sbin/e-smith/runmysqlbackup-rh-mariadb102\n"
     }
 }
