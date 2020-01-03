@@ -26,41 +26,6 @@ The target audience is the Linux administrator
 who wants to backup their mysql databases with an automatic way.
 This script is based on automysqlbackup V3.0
 
-
-
-%changelog
-* Tue Aug 21 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-11.ns7
-- Create mysql user in mariadb101 & mariadb102
-
-* Sun Jul 9 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-10.ns7
-- Dump rh-mariadb101 or rh-mariadb102 if installed
-
-* Thu Nov 9 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-9.ns7
-- added pigz as dependency for multicore support
-
-* Mon Mar 27 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-8.ns7
-- The cronJob can be set hourly
-
-* Sun Mar 11 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-7.ns7
-- GPL license
-
-* Sat Nov 05 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-6.ns7
-- First release to NS7
-
-* Thu May 21 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-5
-- First release to Neth
-
-* Sun Aug 17 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-4
-- added my own patch against the --events warning
---Warning: Skipping the data of table mysql.event. Specify the --events option explicitly.
-
-* Sun Oct 27 2013 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6.3
-- split the contrib in two versions smeserver-automysqlbackup and automysqlbackup
-* Mon Apr 22 2013 Stephane de Labrusse <stephdl@de-labrusse.fr>
-- [3.0.RC6] version Based on automysqlbackup V3.0 RC6
-* Mon Apr 08 2013 Stephane de Labrusse <stephdl@de-labrusse.fr>
-- [0.01] Initial version Based on automysqlbackup V3.0 RC6
-
 %prep
 rm -rf $RPM_BUILD_ROOT
 
@@ -118,3 +83,36 @@ echo "======================================================================="
 
 /sbin/e-smith/config delete $SMEDB
 fi
+
+%changelog
+* Tue Aug 21 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-11.ns7
+- Create mysql user in mariadb101 & mariadb102
+
+* Sun Jul 9 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-10.ns7
+- Dump rh-mariadb101 or rh-mariadb102 if installed
+
+* Thu Nov 9 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-9.ns7
+- added pigz as dependency for multicore support
+
+* Mon Mar 27 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-8.ns7
+- The cronJob can be set hourly
+
+* Sun Mar 11 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-7.ns7
+- GPL license
+
+* Sat Nov 05 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-6.ns7
+- First release to NS7
+
+* Thu May 21 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-5
+- First release to Neth
+
+* Sun Aug 17 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-4
+- added my own patch against the --events warning
+--Warning: Skipping the data of table mysql.event. Specify the --events option explicitly.
+
+* Sun Oct 27 2013 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6.3
+- split the contrib in two versions smeserver-automysqlbackup and automysqlbackup
+* Mon Apr 22 2013 Stephane de Labrusse <stephdl@de-labrusse.fr>
+- [3.0.RC6] version Based on automysqlbackup V3.0 RC6
+* Mon Apr 08 2013 Stephane de Labrusse <stephdl@de-labrusse.fr>
+- [0.01] Initial version Based on automysqlbackup V3.0 RC6
