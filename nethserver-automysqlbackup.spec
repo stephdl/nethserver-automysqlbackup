@@ -58,6 +58,11 @@ perl createlinks
 %defattr(-,root,root)
 %dir %{_nseventsdir}/%{name}-update
 %doc COPYING
+%config(noreplace) /etc/automysqlbackup/automysqlbackup.conf
+%config(noreplace) /etc/automysqlbackup/myserver.conf
+%config(noreplace) /etc/automysqlbackup/rh-mariadb101.conf
+%config(noreplace) /etc/automysqlbackup/rh-mariadb102.conf
+%config(noreplace) /etc/automysqlbackup/rh-mariadb103.conf
 
 %clean 
 rm -rf $RPM_BUILD_ROOT
