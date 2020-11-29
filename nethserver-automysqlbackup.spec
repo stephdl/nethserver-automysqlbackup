@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 11
+%define release 12
 %define rpmver   3.0.RC6
 
 
@@ -58,6 +58,11 @@ perl createlinks
 %defattr(-,root,root)
 %dir %{_nseventsdir}/%{name}-update
 %doc COPYING
+%config(noreplace) /etc/automysqlbackup/automysqlbackup.conf
+%config(noreplace) /etc/automysqlbackup/myserver.conf
+%config(noreplace) /etc/automysqlbackup/rh-mariadb101.conf
+%config(noreplace) /etc/automysqlbackup/rh-mariadb102.conf
+%config(noreplace) /etc/automysqlbackup/rh-mariadb103.conf
 
 %clean 
 rm -rf $RPM_BUILD_ROOT
@@ -85,6 +90,10 @@ echo "======================================================================="
 fi
 
 %changelog
+* Sun Nov 29 2020 stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-12.ns7
+- Dump rh-mariadb103 if installed
+- config noreplace configuration files
+
 * Tue Aug 21 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-11.ns7
 - Create mysql user in mariadb101 & mariadb102
 

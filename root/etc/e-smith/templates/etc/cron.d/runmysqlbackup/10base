@@ -13,4 +13,8 @@
     if ((${'rh-mariadb102-mariadb'}{'status'} || '') eq 'enabled') {
         $OUT .= "$minute $hour * * * root /sbin/e-smith/runmysqlbackup-rh-mariadb102\n"
     }
+
+    if ((${'rh-mariadb103-mariadb'}{'status'} || '') eq 'enabled') {
+        $OUT .= "$minute $hour * * * root /sbin/e-smith/runmysqlbackup-rh-mariadb103\n"
+    }
 }
