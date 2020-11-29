@@ -1,6 +1,6 @@
 %define name nethserver-automysqlbackup
 %define version 3.0.RC6
-%define release 12
+%define release 13
 %define rpmver   3.0.RC6
 
 
@@ -90,7 +90,7 @@ echo "======================================================================="
 fi
 
 %changelog
-* Sun Nov 29 2020 stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-12.ns7
+* Sun Nov 29 2020 stephane de Labrusse <stephdl@de-labrusse.fr> 3.0.RC6-13.ns7
 - Dump rh-mariadb103 if installed
 - config noreplace configuration files
 
